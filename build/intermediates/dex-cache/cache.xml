@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/cawfree/Development/RibbonExample/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="/home/cawfree/Development/RibbonExample/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_85815fbdb078515c483d7f21226d69f7cbbff2f3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/cawfree/Development/RibbonExample/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9c61b4d2ac72e133f9bf97d8de07381482696c4">
+        <dex dex="/home/cawfree/Development/RibbonExample/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a070a282ae6297b773d5f0a5c777cd23a465a3d6/classes.dex" />
+    </item>
+
+</items>
