@@ -72,7 +72,7 @@ public final class GLVectorProgram extends GLProgram implements IGLUniformProvid
 		"\n"+"\t"+"float fy           = lIsCurve * ((2.0 * vBezier.y) * py.x - py.y);" +
 		"\n"+"\t"+"float sd           = lIsCurve * (((((vBezier.x * vBezier.x - vBezier.y) * inversesqrt(fx * fx + fy * fy)))));" + /** TODO: Using inversesqrt... May be more efficient? **/
 		// Adjust the opacity for curvature.
-		"\n"+"\t"+"lReturnColor.a    *= ((1.0 - lIsCurve) + (clamp((((float((vBezier.x <= 0.0)))*((sd) + 0.5) + (float((vBezier.x > 0.0)))*((0.5) - (sd)))), 0.0, 1.0)));"+
+		"\n"+"\t"+"lReturnColor.a    *= 2.0*((1.0 - lIsCurve) + (clamp((((float((vBezier.x <= 0.0)))*((sd) + 0.5) + (float((vBezier.x > 0.0)))*((0.5) - (sd)))), 0.0, 1.0)));"+
 		"\n"+"\t"+"gl_FragColor       = lReturnColor;"+
 		"\n"+"}";
 	

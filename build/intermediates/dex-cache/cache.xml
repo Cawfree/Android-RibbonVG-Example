@@ -2,22 +2,112 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/home/cawfree/Development/RibbonExample/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\AlexanderT\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="/home/cawfree/Development/RibbonExample/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_85815fbdb078515c483d7f21226d69f7cbbff2f3/classes.dex" />
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Android-RibbonVG-Example\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_2789e393e4e1388d9b09df2e779a31de21f66da7.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/home/cawfree/Development/RibbonExample/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\AlexanderT\.android\build-cache\ea12dc8b9483a772d0dac9afc6344e0791c4b926\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="b9c61b4d2ac72e133f9bf97d8de07381482696c4">
-        <dex dex="/home/cawfree/Development/RibbonExample/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a070a282ae6297b773d5f0a5c777cd23a465a3d6/classes.dex" />
+        sha1="93c1199fcb0a34b980e6fff8350daff62e696ec2">
+        <dex dex="C:\Android-RibbonVG-Example\app\build\intermediates\pre-dexed\debug\classes_c9d7e4515342dec5b30c44d7ceb22d2dd25c0a8a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AlexanderT\.android\build-cache\de576057cc524a5057e67db03fa8f025b7781b85\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="425c7b17887e5c3f8cbdf67ba171bc246f29b42c">
+        <dex dex="C:\Android-RibbonVG-Example\app\build\intermediates\pre-dexed\debug\classes_56940c4ebc5191150716dc628546710bed06f157.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AlexanderT\.android\build-cache\c83fc1481f75b7015ca4989a05110b6cd8a18f14\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b746ef0fd46acb5aaf3d9ab9a4cec22c28d3211">
+        <dex dex="C:\Android-RibbonVG-Example\app\build\intermediates\pre-dexed\debug\classes_889ebfb48d7d1c9c17d2fd2188ac44a600c39383.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AlexanderT\.android\build-cache\559296a6301576887a6a934f07d63b10ad45959c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5cc5ef8347a6bafa14556cbd35230aa9b3431bb0">
+        <dex dex="C:\Android-RibbonVG-Example\app\build\intermediates\pre-dexed\debug\classes_3f34205eb42733d6e1bc2f66886fb4b5df3326e9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AlexanderT\.android\build-cache\cb64b23c0e9db64ab4c332d960c2ab36f6811897\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="70f23cb87278f89aa51e6f57e8f0fd5266572d95">
+        <dex dex="C:\Android-RibbonVG-Example\app\build\intermediates\pre-dexed\debug\classes_aa627e220a24535e4d36e3a5b0ff690c5ffd59d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AlexanderT\.android\build-cache\cde3ff9d91cf08f2985ca6fe4a2d0b2110647cb2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d6a04527c17597019dad82777c5094a3d60d1c33">
+        <dex dex="C:\Android-RibbonVG-Example\app\build\intermediates\pre-dexed\debug\classes_c35319b11e040a7e9f2c82f42c3018537c5eb82a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AlexanderT\.android\build-cache\938a8a3bf605c3fa8ff473ca0e41aaf74e1ca486\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="93c10d68ab5ea070f15782ae6d3a28d1f1d8f45e">
+        <dex dex="C:\Android-RibbonVG-Example\app\build\intermediates\pre-dexed\debug\classes_0e0d337d4f2264a859fc64d324dd6443198a7dc1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AlexanderT\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.0\support-annotations-25.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dd84903d2e1af25a6081ef9038ad863cb14ca3a0">
+        <dex dex="C:\Android-RibbonVG-Example\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.0_0f93e346c718afd9149f88299dca0435c46f26f6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AlexanderT\.android\build-cache\be6bea9b92b013909521ee84e7597351754f7ae9\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="518768f3200963fbfec652f498da2c9d39245234">
+        <dex dex="C:\Android-RibbonVG-Example\app\build\intermediates\pre-dexed\debug\classes_23f9be1b1a906f05756d8dc154cb74be66892c58.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AlexanderT\.android\build-cache\db7f9973efc2fc338249e990273a3c2f905efc6c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Android-RibbonVG-Example\app\build\intermediates\pre-dexed\debug\classes_dbb65e3008c178760e1483f7bc8689ba4dc64c96.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\AlexanderT\.android\build-cache\e3b2c1b0f8f3244fc6701c373e686ea4ca40ee21\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Android-RibbonVG-Example\app\build\intermediates\pre-dexed\debug\classes_8b40102d02a0fb3a0d5ea47d886ef5c6c42ceae5.jar" />
     </item>
 
 </items>
