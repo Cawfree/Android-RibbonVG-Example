@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     /* Static Declarations. */
     private static final int SIZE_BUFFER_READ = 2048;
+    private static final int NUM_CIRCLES      = 200;
 
     /** Defines whether OpenGL ES 2.0 is supported. */
     private static final boolean isGLES20Supported(final Activity pActivity) {
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     // Requires that setEGLContextClientVersion(2) is called on the view.
                     EGL10.EGL_RENDERABLE_TYPE, 4 /* EGL_OPENGL_ES2_BIT */,
                     EGL10.EGL_SAMPLE_BUFFERS, 1 /* true */,
-                    EGL10.EGL_SAMPLES, 4,
+                    EGL10.EGL_SAMPLES, 1,
                     EGL10.EGL_NONE
             };
 
@@ -244,11 +245,13 @@ public class MainActivity extends AppCompatActivity {
             // Allocate the GLContext; this is where graphically-delegated resources are managed and persisted.
             final GLContext lGLContext = new GLContext() {
                 /* Member Variables. */
-                private int            mWidth;
-                private int            mHeight;
-                private GLBuffer.XY_UV mFillBuffer;
-                private GLBuffer.XY_UV mStrokeBuffer;
-                private GLTextRenderer mGLTextRenderer;
+                private int              mWidth;
+                private int              mHeight;
+                private GLBuffer.XY_UV   mFillBuffer;
+                private GLBuffer.XY_UV   mStrokeBuffer;
+                private GLTextRenderer   mGLTextRenderer;
+                private GLBuffer.XY_UV[] mCircles;
+                private float[][]        mColors;
                 /** Constructor implementation; ensure graphical dependencies are initialized. */
                 { this.invokeLater(new IGLRunnable() { @Override public final void run(final IGLES20 pGLES20, final GLContext pGLContext) { pGLContext.onHandleDelegates(EEntryMode.SUPPLY, pGLES20, getGLVectorProgram().getVertexShader(), getGLVectorProgram().getFragmentShader(), getGLVectorProgram()); } }); }
                 /** Handle a resize event. */
@@ -280,6 +283,22 @@ public class MainActivity extends AppCompatActivity {
                     // Provide the GLBuffer with some graphical context.
                     this.onHandleDelegates(EEntryMode.SUPPLY, pGLES20, this.getFillBuffer());
                     this.onHandleDelegates(EEntryMode.SUPPLY, pGLES20, this.getStrokeBuffer());
+                    // Initialize the Circles and Colors.
+                    this.mCircles = new GLBuffer.XY_UV[MainActivity.NUM_CIRCLES];
+                    this.mColors  = new float[MainActivity.NUM_CIRCLES][];
+                    // Let's make some circles.
+                    for(int i = 0; i < MainActivity.NUM_CIRCLES; i++) {
+                        // Make a New Circle.
+                        final VectorPath lCircle = getVectorPathContext().onCircle(getFloatStore(), (int)(this.getScreenWidth() * Math.random()), (int)(this.getScreenHeight() * Math.random()), 3).onCreatePath(getFloatStore());
+                        // Triangulate the Circle.
+                        getVectorPathContext().onTriangulateFill(lCircle, getFloatStore(), EFillRule.NON_ZERO);
+                        // Buffer a new Circle.
+                        this.getCircles()[i] = new GLBuffer.XY_UV(DataUtils.delegateNative(getFloatStore().onProduceArray()), IGLES20.GL_ARRAY_BUFFER, IGLES20.GL_DYNAMIC_DRAW);
+                        // Delegate the Circle.
+                        this.onHandleDelegates(EEntryMode.SUPPLY, pGLES20, this.getCircles()[i]);
+                        // Give the Circle a random Colour.
+                        this.getColors()[i] = new float[]{ (float)Math.random(), (float)Math.random(), (float)Math.random(), 0.6f };
+                    }
                 }
                 /** Define what to draw. */
                 @Override protected final void onRenderFrame(final IGLES20 pGLES20, final float pCurrentTimeSeconds) {
@@ -304,6 +323,11 @@ public class MainActivity extends AppCompatActivity {
                     // Draw the Circle Fill and Stroke. /** TODO: Note that these are persisted between frames! The shapes are changing, but we're not actually performing any vector computation!*/
                     this.draw(pGLES20,   this.getFillBuffer(), new float[] { 0.0f, 0.0f, 1.0f, 1.0f });
                     this.draw(pGLES20, this.getStrokeBuffer(), new float[] { 1.0f, 0.0f, 0.0f, 1.0f });
+                    // Iterate the Circles.
+                    for(int i = 0; i < MainActivity.NUM_CIRCLES; i++) {
+                        // Draw the Circle and it's Color.
+                        this.draw(pGLES20, this.getCircles()[i], this.getColors()[i]);
+                    }
                     // Reset the ModelMatrix.
                     GLMatrix.setIdentityM(this.getModelMatrix());
                     // Declare the String to Draw.
@@ -320,6 +344,7 @@ public class MainActivity extends AppCompatActivity {
                     // Render some text.
                     this.draw(pGLES20, lText, lFontScale, new float[]{ 0.0f, 1.0f, 0.0f, 1.0f });
                     this.getGLTextRenderer().onRenderText(pGLES20, this, getGLVectorProgram(), lText, lFontScale);
+
                     // Kill the GLBuffer, since we're rendering it then destroying it on a single frame. (Note, that since the vertices are persisted on a GPU, we only have to create the circle vertices every time the screen dimension changes.)
                     /* Bind to the GLVectorProgram. */
                     getGLVectorProgram().unbind(pGLES20);
@@ -349,9 +374,11 @@ public class MainActivity extends AppCompatActivity {
                 /** Unused implementations. */
                 @Override public final void onScreenParametersChanged(final IScreenParameters pScreenParameters) { }
                 /* Getters. */
-                private final GLBuffer.XY_UV getFillBuffer()     { return this.mFillBuffer;     }
-                private final GLBuffer.XY_UV getStrokeBuffer()   { return this.mStrokeBuffer;   }
-                private final GLTextRenderer getGLTextRenderer() { return this.mGLTextRenderer; }
+                private final GLBuffer.XY_UV   getFillBuffer()     { return this.mFillBuffer;     }
+                private final GLBuffer.XY_UV   getStrokeBuffer()   { return this.mStrokeBuffer;   }
+                private final GLTextRenderer   getGLTextRenderer() { return this.mGLTextRenderer; }
+                private final GLBuffer.XY_UV[] getCircles()        { return this.mCircles;        }
+                private final float[][]        getColors()         { return this.mColors;         }
             };
             // Allocate the Android-Specific OpenGL ES 2.0 API, through the abstract boilerplate API.
             final IGLES20 lGLES20 = new AndroidGLES20();
