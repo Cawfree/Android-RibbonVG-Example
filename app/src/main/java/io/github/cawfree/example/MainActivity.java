@@ -306,7 +306,6 @@ public class MainActivity extends AppCompatActivity {
                     this.draw(pGLES20, this.getStrokeBuffer(), new float[] { 1.0f, 0.0f, 0.0f, 1.0f });
                     // Reset the ModelMatrix.
                     GLMatrix.setIdentityM(this.getModelMatrix());
-
                     // Declare the String to Draw.
                     final String lText = "Hello, world!";
                     /* Supply the colour (R, G, B, A). I want to draw in red! */
@@ -319,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
                     // Offset the Text.
                     GLMatrix.translateM(this.getModelMatrix(), (this.getScreenWidth() - lWidth) / 2, (this.getScreenHeight() - lHeight) / 2, 0);
                     // Render some text.
-                    this.draw(pGLES20, "Hello, world!", lFontScale, new float[]{ 0.0f, 1.0f, 0.0f, 1.0f });
+                    this.draw(pGLES20, lText, lFontScale, new float[]{ 0.0f, 1.0f, 0.0f, 1.0f });
                     this.getGLTextRenderer().onRenderText(pGLES20, this, getGLVectorProgram(), lText, lFontScale);
                     // Kill the GLBuffer, since we're rendering it then destroying it on a single frame. (Note, that since the vertices are persisted on a GPU, we only have to create the circle vertices every time the screen dimension changes.)
                     /* Bind to the GLVectorProgram. */
