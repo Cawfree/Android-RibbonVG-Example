@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     /* Static Declarations. */
     private static final int SIZE_BUFFER_READ = 2048;
-    private static final int NUM_CIRCLES      = 200;
+    private static final int NUM_CIRCLES      = 50;
 
     /** Defines whether OpenGL ES 2.0 is supported. */
     private static final boolean isGLES20Supported(final Activity pActivity) {
